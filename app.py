@@ -244,12 +244,13 @@ def all_users():
     return jsonify(user_list)
 
 
-@app.route('/logout')
+@app.route('/logout', methods=['POST'])
 def logout():
     session["user"] = None
     print(' user logged out')
     # return redirect(url_for('home'))
-    return jsonify({'status': 0})
+    return redirect(url_for('home'))
+    # jsonify({'status': 0})
 
 
 if __name__ == '__main__':
